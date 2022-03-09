@@ -5,8 +5,10 @@ export const signup = (email: string, password: string) => {
   return async (
     dispatch: (arg0: { type: string; payload: string }) => void
   ) => {
+    console.log(process.env.REACT_APP_API_KEY)
+    const API_KEY = process.env.REACT_APP_API_KEY;
     const response = await fetch(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyA05kRCHEUHECVDHkEeEqhZngg8fzjjRAM',
+      `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`,
       {
         method: 'POST',
         headers: {
